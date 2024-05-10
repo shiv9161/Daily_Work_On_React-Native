@@ -1,0 +1,202 @@
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import Button from '../onBoarding/components/Button';
+import {Colors} from '../../theme/colors';
+import Octicons from 'react-native-vector-icons/Octicons';
+import CustomTextInput from '../auth/components/CustomTextInput';
+import Button2 from '../../components/Button';
+
+const RatingReview = () => {
+  return (
+    <View style={styles.container}>
+      {/* exit button */}
+      <Button
+        buttonStyle={{
+            marginTop: 30,
+            marginLeft: 30,
+            position: 'absolute',
+        }}
+        onPress={() => {
+            console.log('------------------call->');
+        }}
+        iconName="left"
+        />
+
+        <ScrollView>
+      {/* top heading image */}
+      <View>
+        <Image
+          source={require('../../images/Rectangle.png')}
+          style={styles.topBackImg}
+        />
+      </View>
+
+      {/* main circle icon here */}
+      <View style={styles.drHeadImg}>
+        <Image
+          source={require('../../images/drImage.png')}
+          style={styles.drImgMain}
+        />
+      </View>
+
+        {/* sec mian head */}
+        <View style={styles.secMainHead}>
+          {/* dr name and profession */}
+          <View style={styles.drHead}>
+            <Text style={styles.drpara}>Dr. Ajay Dholia</Text>
+            <Text style={styles.drPro}>Dentist</Text>
+          </View>
+
+          {/* how was your */}
+          <View>
+            <Text style={styles.experience}>
+              How was your experience with Ajay?
+            </Text>
+          </View>
+
+          {/* horizontal line */}
+          <View style={styles.horzontalLine}></View>
+
+          {/* overall rating */}
+          <View style={styles.overAll}>
+            <Text style={styles.ratingPara}>Your overall rating</Text>
+            <View style={styles.star}>
+              <Octicons name="star-fill" size={30} color={'#FCC728'} />
+              <Octicons name="star-fill" size={30} color={'#FCC728'} />
+              <Octicons name="star-fill" size={30} color={'#FCC728'} />
+              <Octicons name="star-fill" size={30} color={'#FCC728'} />
+              <Octicons name="star-fill" size={30} color={'#FCC728'} />
+            </View>
+          </View>
+
+          {/* horizontal line */}
+          <View style={styles.horzontalLine}></View>
+
+          {/* details reviews */}
+          <View style={styles.problemHere}>
+            <Text style={styles.detailReview}>Add detailed review</Text>
+            <CustomTextInput
+              inputContainerStyle={{
+                backgroundColor: 'rgba(255, 255, 255, 1)',
+                borderRadius: 12,
+                paddingLeft: 20,
+                borderColor: 'rgba(103, 114, 148, 0.16)',
+                borderWidth: 1,
+                height: 150,
+                marginTop: 20,
+                width: '100%',
+              }}
+              inputStyle={{alignSelf: 'flex-start'}}
+              placeholder="Write your problem here..."
+              multiline={true}
+            />
+          </View>
+
+          {/* Submit button here */}
+          <View style={styles.navigate}>
+          <Button2
+            label="Submit"
+            onPress={() => {
+              console.log('------------------call->');
+            }}
+            buttonStyle={{
+              width: '100%',
+              display: 'flex',
+              marginTop: 25,
+              marginBottom: 270,
+              height: 54
+            }}
+          />
+          </View>
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
+
+export default RatingReview;
+
+const styles = StyleSheet.create({
+  container: {
+    // marginHorizontal: 30,
+    // borderWidth: 1,
+    // height: '100%',
+  },
+  topBackImg: {
+    height: 170,
+    width: '100%',
+    position: 'absolute',
+  },
+  drImgMain: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    // top: 0
+  },
+  drHeadImg: {
+    backgroundColor: Colors.backgroundColor,
+    top: 120,
+    position: 'absolute',
+    left: 140,
+    borderRadius: 60,
+    padding: 10,
+  },
+  drHead: {
+    alignItems: 'center',
+  },
+  drpara: {
+    fontWeight: '600',
+    fontSize: 16,
+    color: Colors.black,
+  },
+  secMainHead: {
+    top: 240,
+  },
+  drPro: {
+    fontWeight: '400',
+    fontSize: 16,
+    top: 10,
+    color: Colors.black,
+  },
+  experience: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: Colors.black,
+    textAlign: 'center',
+    marginTop: 30,
+  },
+  horzontalLine: {
+    backgroundColor: Colors.black,
+    borderWidth: 0.2,
+    marginTop: 20,
+    marginHorizontal: 30,
+  },
+  overAll: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  ratingPara: {
+    fontSize: 16,
+    fontWeight: '400',
+  },
+  star: {
+    flexDirection: 'row',
+    marginTop: 20,
+    // borderWidth: 1,
+    width: 239,
+    justifyContent: 'space-between',
+  },
+  detailReview: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: Colors.black,
+    marginTop: 20,
+  },
+  problemHere: {
+    marginHorizontal: 30,
+  },
+  navigate:{
+    alignItems: 'center',
+    marginHorizontal: 30
+  }
+});
